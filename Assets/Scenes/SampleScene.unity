@@ -2786,6 +2786,7 @@ GameObject:
   - component: {fileID: 1215849119}
   - component: {fileID: 1215849121}
   - component: {fileID: 1215849120}
+  - component: {fileID: 1215849122}
   m_Layer: 5
   m_Name: DarkenPlane
   m_TagString: Untagged
@@ -2852,6 +2853,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215849118}
   m_CullTransparentMesh: 1
+--- !u!114 &1215849122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215849118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d66b63ea2b02ed4cbb3f204c40adc53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1220194167
 GameObject:
   m_ObjectHideFlags: 0
@@ -3647,6 +3660,7 @@ GameObject:
   - component: {fileID: 1574941949}
   - component: {fileID: 1574941951}
   - component: {fileID: 1574941950}
+  - component: {fileID: 1574941952}
   m_Layer: 5
   m_Name: HintSprite
   m_TagString: Untagged
@@ -3711,6 +3725,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1574941948}
   m_CullTransparentMesh: 1
+--- !u!114 &1574941952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574941948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95f28f27ade45c94d8ef85e68a9cbd27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1629090018
 GameObject:
   m_ObjectHideFlags: 0
