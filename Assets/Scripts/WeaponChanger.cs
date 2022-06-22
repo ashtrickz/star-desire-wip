@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class WeaponChanger : MonoBehaviour
 {
-    [SerializeField] int selectedWeapon;
+    [HideInInspector] public int selectedWeapon;
 
     void Start() => SelectWeapon();
     

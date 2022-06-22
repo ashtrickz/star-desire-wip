@@ -124,4 +124,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   damage: 1
-  hitEffect: {fileID: 0}
+  hitEffect: {fileID: 7790269618729323841, guid: 133237ebaa459414fac0293a7d904d23, type: 3}
+  weaponChanger: {fileID: 0}

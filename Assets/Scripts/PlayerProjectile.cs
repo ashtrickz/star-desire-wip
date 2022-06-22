@@ -10,10 +10,11 @@ public class PlayerProjectile : MonoBehaviour
     public ParticleSystem hitEffect;
 
     Vector2 projectile;
+    [SerializeField] private float incline = 0;
 
     private void Update()
     {
-        projectile = Vector2.MoveTowards(transform.position, new Vector2(projectile.x, projectile.y + 5), speed * Time.deltaTime);
+        projectile = Vector2.MoveTowards(transform.position, new Vector2(projectile.x + incline, projectile.y + 5), speed * Time.deltaTime);
         transform.position = projectile;
         if (projectile.y > 5 || projectile.x > 3)
             Destroy(gameObject);
@@ -36,4 +37,6 @@ public class PlayerProjectile : MonoBehaviour
         speed = weaponSpeed;
         hitEffect = particle;
     }
+
+    public void GetIncline(float value) => incline = value;
 }

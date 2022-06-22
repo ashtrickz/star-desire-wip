@@ -17,5 +17,4 @@ public class GameAssets : MonoBehaviour
     }
 
     public Transform pfDamagePopup;
-
 }
