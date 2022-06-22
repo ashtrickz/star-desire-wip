@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Projectile
   - Score
+  - Camera
   layers:
   - Default
   - TransparentFX
