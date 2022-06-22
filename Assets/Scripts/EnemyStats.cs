@@ -8,7 +8,7 @@ public class EnemyStats : MonoBehaviour
 {
     [SerializeField] public float health = 5;
     [SerializeField] public float damage = 1;
-    [SerializeField] public float shootSpeed = 1f;
+    [SerializeField] public float shootSpeed = 0.5f;
     [SerializeField] private GameObject _buff;
     private GameObject score;
 

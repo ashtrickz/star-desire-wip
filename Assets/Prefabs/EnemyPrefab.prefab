@@ -275,7 +275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 15
   damage: 1
-  shootSpeed: 0.5
+  shootSpeed: 0.75
   _buff: {fileID: 3965665852706471703, guid: f379bfe22f3c3ce4b9a9f28ac54f88b3, type: 3}
   spriteRenderer: {fileID: 5447708146634334440}
 --- !u!1 &4925590047666610365
