@@ -52,7 +52,7 @@ public class PlayerProjectile : MonoBehaviour
     public void GetColor(int value)
     {
         if (value == 0)
-            spriteRenderer.color = Color.red;
+            spriteRenderer.color = Color.white;
         else spriteRenderer.color = Color.magenta;
     }
     

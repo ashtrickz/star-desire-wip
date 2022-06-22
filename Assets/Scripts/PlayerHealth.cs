@@ -9,6 +9,8 @@ public class PlayerHealth : MonoBehaviour
     public float health = 3;
     public float maxHealth;
 
+    public SpriteRenderer spriteRenderer;
+    
     public CinemachineShake cinemachineShake;
     
     void Start()
@@ -22,7 +24,16 @@ public class PlayerHealth : MonoBehaviour
         {
             health -= damage;
             cinemachineShake.ShakeCamera(0.2f,0.5f);
+            StartCoroutine(DamageColor());
         }
         else SceneManager.LoadScene("SampleScene");
     }
+
+    IEnumerator DamageColor()
+    {
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.2f);
+        spriteRenderer.color = Color.white;
+    }
+    
 }

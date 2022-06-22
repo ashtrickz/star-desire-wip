@@ -12,6 +12,8 @@ public class EnemyStats : MonoBehaviour
     [SerializeField] private GameObject _buff;
     private GameObject score;
 
+    public SpriteRenderer spriteRenderer;
+    
     private void Start()
     {
         score = GameObject.FindGameObjectWithTag("Score");
@@ -29,5 +31,17 @@ public class EnemyStats : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage) => health -= damage;
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        StartCoroutine(DamageColor());
+    }
+
+    IEnumerator DamageColor()
+    {
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.2f);
+        spriteRenderer.color = Color.white;
+    }
+    
 }
