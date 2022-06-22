@@ -26,15 +26,16 @@ public class Weapon : MonoBehaviour
 
     private void Update()
     {
+        playerProjectile.GetColor(weaponChanger.selectedWeapon);
         flight = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().allowFlight;
         if (shotTime <= 0 && flight)
         {
             playerProjectile.GetData(damage, shotSpeed, hitEffect);
             if (weaponChanger.selectedWeapon == 1)
             {
-                for (int i = -3; i <= 3; i+=3)
+                for (int index = -3; index <= 3; index+=3)
                 {
-                    playerProjectile.GetIncline(i);
+                    playerProjectile.GetIncline(index);
                     Instantiate(projectile, transform.position, Quaternion.identity);
                 }
             }

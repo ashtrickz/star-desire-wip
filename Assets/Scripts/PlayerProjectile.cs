@@ -8,10 +8,18 @@ public class PlayerProjectile : MonoBehaviour
     public float speed;
     public float damage;
     public ParticleSystem hitEffect;
+    public ParticleSystem shotEffect;
 
+    public SpriteRenderer spriteRenderer;
+    
     Vector2 projectile;
     [SerializeField] private float incline = 0;
 
+    void Start()
+    {
+        //Instantiate(shotEffect, transform.position, Quaternion.identity);
+    }
+    
     private void Update()
     {
         projectile = Vector2.MoveTowards(transform.position, new Vector2(projectile.x + incline, projectile.y + 5), speed * Time.deltaTime);
@@ -29,7 +37,8 @@ public class PlayerProjectile : MonoBehaviour
             Instantiate(hitEffect, transform.position, Quaternion.LookRotation(Vector2.down));
             DamagePopup.Create(transform.position, damage);
         }
-        if (collision.gameObject.CompareTag("Player")) Destroy(gameObject);
+        if (collision.gameObject.CompareTag("Player")) 
+            Destroy(gameObject);
     }
     public void GetData(float weaponDamage, float weaponSpeed, ParticleSystem particle)
     {
@@ -39,4 +48,12 @@ public class PlayerProjectile : MonoBehaviour
     }
 
     public void GetIncline(float value) => incline = value;
+
+    public void GetColor(int value)
+    {
+        if (value == 0)
+            spriteRenderer.color = Color.red;
+        else spriteRenderer.color = Color.magenta;
+    }
+    
 }

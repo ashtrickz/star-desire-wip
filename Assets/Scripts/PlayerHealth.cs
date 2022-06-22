@@ -21,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
         if (health > 1)
         {
             health -= damage;
-            cinemachineShake.ShakeCamera(1,0.5f);
+            cinemachineShake.ShakeCamera(0.2f,0.5f);
         }
         else SceneManager.LoadScene("SampleScene");
     }

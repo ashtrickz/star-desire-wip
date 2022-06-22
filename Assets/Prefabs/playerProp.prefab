@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -122,7 +122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 967f36c966905234b912ffc28c43a990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  damage: 1
+  speed: 10
+  damage: 2
   hitEffect: {fileID: 7790269618729323841, guid: 133237ebaa459414fac0293a7d904d23, type: 3}
-  weaponChanger: {fileID: 0}
+  shotEffect: {fileID: 3042558334574391513, guid: 92cf92dfe35e0a84783df9583b66a1b4, type: 3}
+  spriteRenderer: {fileID: 7246749804837251555}
+  incline: 0
