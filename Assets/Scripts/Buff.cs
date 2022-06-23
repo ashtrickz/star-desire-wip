@@ -82,18 +82,22 @@ public class Buff : MonoBehaviour
             case 1:
                 effectList = effectType.Heal;
                 _spriteRenderer.color = Color.green;
+                _spriteRenderer.sprite = GameObject.FindGameObjectWithTag("HealthSprite").GetComponent<SpriteRenderer>().sprite;
                 break;
             case 2:
                 effectList = effectType.Speed;
                 _spriteRenderer.color = Color.cyan;
+                _spriteRenderer.sprite = GameObject.FindGameObjectWithTag("SpeedUpSprite").GetComponent<SpriteRenderer>().sprite;
                 break;
             case 3:
                 effectList = effectType.Power;
                 _spriteRenderer.color = Color.red;
+                _spriteRenderer.sprite = GameObject.FindGameObjectWithTag("PowerUpSprite").GetComponent<SpriteRenderer>().sprite;
                 break;
             case 4:
                 effectList = effectType.SecondWeapon;
                 _spriteRenderer.color = Color.yellow;
+                _spriteRenderer.sprite = GameObject.FindGameObjectWithTag("Weapon2Sprite").GetComponent<SpriteRenderer>().sprite;
                 break;
         }
     }

@@ -9,6 +9,11 @@ TagManager:
   - Projectile
   - Score
   - Camera
+  - BuffSprite
+  - HealthSprite
+  - Weapon2Sprite
+  - SpeedUpSprite
+  - PowerUpSprite
   layers:
   - Default
   - TransparentFX
