@@ -11,11 +11,8 @@ public class HealthBar : MonoBehaviour
     [SerializeField] Image bottomBar;
     float speed = 2f;
     
-    void Start()
-    {     
-        upperBar.fillAmount = middleBar.fillAmount = bottomBar.fillAmount = 1;
-    }
-
+    void Start() => upperBar.fillAmount = middleBar.fillAmount = bottomBar.fillAmount = 1;
+    
     void Update()
     {
         health = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();

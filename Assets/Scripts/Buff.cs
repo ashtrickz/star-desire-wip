@@ -11,24 +11,33 @@ public class Buff : MonoBehaviour
     [SerializeField] private float duration = 5f;
     [SerializeField] private float effectStrength = 5f;
     [SerializeField] private effectType effectList = new effectType();
-    [SerializeField] private PlayerHealth _playerHealth;
+    private PlayerHealth _playerHealth;
+    private BuffTimerBar buffTimerBar;
     
     private Weapon _weapon;
+    private WeaponChanger weaponChanger;
     private Collider2D _collider;
     private bool pickedUp = false;
     private Vector2 position;
+
+    [SerializeField] private float weaponChangeDuration = 10f;
+    [SerializeField] private float weaponEffectDuration = 5f;
 
     private SpriteRenderer _spriteRenderer;
     public enum effectType
     {
         Heal,
         Speed,
-        Power
+        Power,
+        SecondWeapon
     }
 
     private void Start()
     {
         position = transform.position;
+        buffTimerBar = GameObject.FindObjectOfType<BuffTimerBar>();
+        weaponChanger = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<WeaponChanger>();
+        _weapon = GameObject.FindObjectOfType<Weapon>();
         _playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _collider = GetComponent<Collider2D>();
@@ -38,7 +47,6 @@ public class Buff : MonoBehaviour
 
     private void Update()
     {
-        _weapon = GameObject.FindObjectOfType<Weapon>();
         position.y -= 0.5f * Time.deltaTime;
         transform.position = position;
     }
@@ -61,12 +69,14 @@ public class Buff : MonoBehaviour
                 StartCoroutine(SpeedBuff());
             if (effectList == effectType.Power)
                 StartCoroutine(Power());
+            if (effectList == effectType.SecondWeapon)
+                StartCoroutine(SecondWeapon());
         }
     }
 
     private void EffectRandomizer()
     {
-        int number = UnityEngine.Random.Range(1, 4);
+        int number = UnityEngine.Random.Range(1, 5);
         switch (number)
         {
             case 1:
@@ -81,13 +91,20 @@ public class Buff : MonoBehaviour
                 effectList = effectType.Power;
                 _spriteRenderer.color = Color.red;
                 break;
+            case 4:
+                effectList = effectType.SecondWeapon;
+                _spriteRenderer.color = Color.yellow;
+                break;
         }
     }
-    
+
     IEnumerator SpeedBuff()
     {
+        duration = weaponEffectDuration;
         _weapon.startTime /= effectStrength/2;
+        buffTimerBar.TimerStart(duration);
         yield return new WaitForSeconds(duration);
+        buffTimerBar.TimerEnd();
         Debug.Log("time is off");
         _weapon.startTime *= effectStrength/2;
         Destroy(gameObject);
@@ -95,17 +112,31 @@ public class Buff : MonoBehaviour
 
     IEnumerator Power()
     {
+        duration = weaponEffectDuration;
         _weapon.damage *= effectStrength/2;
+        buffTimerBar.TimerStart(duration);
         yield return new WaitForSeconds(duration);
+        buffTimerBar.TimerEnd();
         Debug.Log("time is off");
         _weapon.damage /= effectStrength/2;
         Destroy(gameObject);
     }
 
+    IEnumerator SecondWeapon()
+    {
+        duration = weaponChangeDuration;
+        weaponChanger.ChangeWeapon();
+        buffTimerBar.TimerStart(duration);
+        yield return new WaitForSeconds(duration);
+        buffTimerBar.TimerEnd();
+        weaponChanger.ChangeWeapon();
+    }
+
     IEnumerator SelfDestroy()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(duration);
         if (!pickedUp)
             Destroy(gameObject);
     }
+    
 }

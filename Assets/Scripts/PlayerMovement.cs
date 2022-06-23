@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     Vector2 mousePos;
     Vector2 position = new Vector2(0f, 0f);
-    public float speed = 0.1f;
+    public float speed = 0.5f;
     public bool allowFlight = false;
 
     private void Start()
